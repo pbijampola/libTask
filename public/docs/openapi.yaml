@@ -1,0 +1,166 @@
+openapi: 3.0.3
+info:
+  title: 'Library API Documentation'
+  description: 'Library API documentation is a comprehensive guide that provides all the necessary information to interact with the web application and API. It includes detailed information about the endpoints, their inputs, and outputs, as well as authentication and authorization procedures. The documentation is exported as collections using tools such as Postman or Thunder Client, making it easy to test the API and understand its functionality. The documentation is well-organized, clear, and easy to understand. It is intended for developers who want to integrate their applications with library or for anyone who wants to understand the inner workings of the API.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/login:
+    post:
+      summary: 'Authenticated customer'
+      operationId: authenticatedCustomer
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"user\": {\n\"id\": 1,\n\"name\": \"Patrick Bijampola\",\n\"email\": \"patrickbijampola@gmail.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-05T09:00:00.000000Z\",\n\"updated_at\": \"2021-05-05T09:00:00.000000Z\"\n},"
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: patrickbijampola@gmail.com
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: '********'
+              required:
+                - email
+                - password
+      security: []
+  /api/books:
+    get:
+      summary: 'Get all books'
+      operationId: getAllBooks
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"title\": \"The Lord of the Rings\",\n\"author\": \"J.R.R. Tolkien\",\n\"short description\": \"The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold.\",\n\"full description\": \"The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold.\",\n\"created_at\": \"2021-05-05T09:00:00.000000Z\",\n\"updated_at\": \"2021-05-05T09:00:00.000000Z\"\n},"
+      tags:
+        - Books
+      security: []
+  /api/books/most-liked:
+    get:
+      summary: 'Get books with most likes'
+      operationId: getBooksWithMostLikes
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"current_page\": 1,\n\"data\": [\n{\n\"id\": 1,\n\"title\": \"The Lord of the Rings\",\n\"author\": \"J.R.R. Tolkien\",\n\"short description\": \"The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold.\",\n\"full description\": \"The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies sold.\",\n\"created_at\": \"2021-05-05T09:00:00.000000Z\",\n\"updated_at\": \"2021-05-05T09:00:00.000000Z\"\n},"
+      tags:
+        - Books
+      security: []
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Books
+    description: ''
+  -
+    name: Endpoints
+    description: ''

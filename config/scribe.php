@@ -9,12 +9,13 @@ return [
     /*
      * The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
      */
-    'title' => null,
+    'title' => 'Library API Documentation',
 
     /*
      * A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
      */
-    'description' => '',
+    'description' => 'Library API documentation is a comprehensive guide that provides all the necessary information to interact with the web application and API. It includes detailed information about the endpoints, their inputs, and outputs, as well as authentication and authorization procedures. The documentation is exported as collections using tools such as Postman or Thunder Client, making it easy to test the API and understand its functionality. The documentation is well-organized, clear, and easy to understand. It is intended for developers who want to integrate their applications with library or for anyone who wants to understand the inner workings of the API.',
+
 
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
@@ -268,6 +269,8 @@ INTRO
      *
      */
     'example_languages' => [
+        'php',
+        'python',
         'bash',
         'javascript',
     ],
@@ -344,7 +347,7 @@ INTRO
      * - 'logo' => 'img/logo.png' // for `laravel` type
      *
      */
-    'logo' => false,
+    'logo' => 'https://ellipsis.co.tz/images/Ellipsis-02.png',
 
     /**
      * Customize the "Last updated" value displayed in the docs by specifying tokens and formats.

@@ -12,3 +12,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/login', [AuthController::class, 'login']);
 //Getting all books
 Route::get('books',[BooksController::class,'books']);
+//Getting books with most likes
+Route::get('books/most-liked',[BooksController::class,'mostLikedBooks']);
