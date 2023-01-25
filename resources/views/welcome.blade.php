@@ -32,7 +32,7 @@
     <div class="container-fluid">
         <nav class="navbar navbar-expand-md navbar-dark">
             <a class="navbar-brand heading-black" href="/">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'Ellipsis Library') }}
             </a>
             <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
                     data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
