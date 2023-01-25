@@ -26,14 +26,12 @@
              <form action="{{route('comment.store')}}" method="POST">
                 @csrf
                 <div class="d-flex flex-start w-100">
-                    <img class="rounded-circle shadow-1-strong me-3"
-                      src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
-                      height="40" />
+
                       <input  type="hidden" name="book_id" value="{{$book->id}}">
                     <div class="form-outline w-100">
                         <label class="form-label" for="textAreaExample">Message</label>
                       <textarea class="form-control" id="textAreaExample" name="comment" rows="4"
-                        style="background: #fff;"></textarea>
+                        style="background: #fff;">{{old('comment')}}</textarea>
                     </div>
                   </div>
                   <div class="float-end mt-2 pt-1">

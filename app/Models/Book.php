@@ -69,5 +69,19 @@ class Book extends Model
         }
         return $this->likes()->create(['user_id' => $user->id, 'is_like' => false]);
     }
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withPivot(['is_favorite']);
+    }
+
+    public function markAsFavorite(User $user)
+    {
+        $this->users()->attach($user->id, ['is_favorite' => true]);
+    }
+
+    public function unmarkAsFavorite(User $user)
+    {
+        $this->users()->updateExistingPivot($user->id, ['is_favorite' => false]);
+    }
 
 }

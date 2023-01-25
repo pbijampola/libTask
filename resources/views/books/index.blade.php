@@ -21,7 +21,7 @@
                         <th>{{$book->author}}</th>
                         <th>
                          <a class="btn btn-info" href="{{route('books.edit',$book->id)}}"><i class="bi bi-pencil-square"></i></a>
-                         <a class="btn btn-info" href="{{route('books.show',$book->id)}}"><i class="bi bi-eye-fill"></i></a>
+                         {{--  <a class="btn btn-info" href="{{route('books.show',$book->id)}}"><i class="bi bi-eye-fill"></i></a>  --}}
 
                          <form action="{{route('books.destroy',$book->id)}}" method="POST">
                             @csrf
@@ -34,6 +34,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            {{ $books->links() }}
+        </div>
     </div>
     {{--  @else  --}}
 

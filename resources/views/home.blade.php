@@ -34,20 +34,20 @@
                                 @if (!$existingLike)
                                     <form method="post" action="{{ route('books.like', $book) }}">
                                         @csrf
-                                        <button type="submit" class="btn btn-success"><i class="bi bi-heart"></i></button>
+                                        <button type="submit" class="btn btn-success"><i class="bi bi-hand-thumbs-up"></i></button>
                                     </form>
                                 @endif
 
                                 @if ($existingLike && $existingLike->is_like)
                                     <form method="post" action="{{ route('books.dislike', $book) }}">
                                         @csrf
-                                        <button type="submit" class="btn btn-danger"><i class="bi bi-heart"></i></button>
+                                        <button type="submit" class="btn btn-danger"><i class="bi bi-hand-thumbs-down-fill"></i></button>
                                     </form>
                                 @endif
                                 @if ($existingLike && !$existingLike->is_like)
                                     <form method="post" action="{{ route('books.like', $book) }}">
                                         @csrf
-                                        <button type="submit" class="btn btn-success"><i class="bi bi-heart"></i></button>
+                                        <button type="submit" class="btn btn-success"><i class="bi bi-hand-thumbs-up"></i></button>
                                     </form>
                                 @endif
 
@@ -55,6 +55,45 @@
                                 <a href="{{ route('book.show', $book->id) }}" class="btn btn-info">
                                     <i class="bi bi-chat"></i>
                                 </a>
+                                {{--  @php
+                                    $existingFavorite = $book
+                                        ->favorites()
+                                        ->where('user_id', Auth::id())
+                                        ->first();
+                                @endphp  --}}
+                                {{--  @if (!$existingFavorite)
+                                    <form method="post" action="{{ route('books.markAsFavorite', $book) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">Mark as Favorite</button>
+                                    </form>
+                                @endif
+
+                                @if ($existingFavorite)
+                                    <form method="post" action="{{ route('books.unmarkAsFavorite', $book) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Unmark as Favorite</button>
+                                    </form>
+                                @endif  --}}
+                                @if (!$book->users()->wherePivot('is_favorite', true)->where('user_id', Auth::id())->first())
+                                    <form method="post" action="{{ route('books.markAsFavorite', $book) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success"><i class="bi bi-heart-fill"></i></button>
+                                    </form>
+                                @endif
+
+                                @if ($book->users()->wherePivot('is_favorite', true)->where('user_id', Auth::id())->first())
+                                    <form method="post" action="{{ route('books.unmarkAsFavorite', $book) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger"><i class="bi bi-heart"></i></button>
+                                    </form>
+                                @endif
+
+
+
+
+
+
+
                                 {{--  @if (Auth::user()->favoriteBooks->contains($book))
                                     <form method="post" action="{{ route('users.unmarkAsFavorite', $book) }}">
                                         @csrf
@@ -73,7 +112,7 @@
                 </div>
             @endforeach
             <div class="d-flex justify-content-center">
-                {{$books->links()}}
+                {{ $books->links() }}
             </div>
         </div>
 

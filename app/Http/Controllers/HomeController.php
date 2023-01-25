@@ -22,13 +22,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function userIndex()
     {
-        $books = Book::orderBy('created_at','desc')->paginate(10);
+        $books = Book::orderBy('created_at','desc')->paginate(12);
         return view('home', compact('books'));
     }
     public function adminIndex()
     {
-        return view('admin.home');
+        $books = Book::orderBy('created_at','desc')->paginate(10);
+        return view('books.index', compact('books'));
     }
 }

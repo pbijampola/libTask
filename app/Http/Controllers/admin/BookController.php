@@ -15,7 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $books = Book::orderBy('created_at','desc')->paginate(10);
         return view('books.index', compact('books'));
     }
 
@@ -160,6 +160,18 @@ class BookController extends Controller
     {
         $book->dislike($request->user());
 
+        return back();
+    }
+
+    public function markAsFavorite(Book $book, Request $request)
+    {
+        $book->markAsFavorite($request->user());
+        return back();
+    }
+
+    public function unmarkAsFavorite(Book $book, Request $request)
+    {
+        $book->unmarkAsFavorite($request->user());
         return back();
     }
 }
