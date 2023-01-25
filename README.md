@@ -37,7 +37,7 @@ Instructions on How to Install it Locally
 ```
 7:Run to seed the database with dummy data (Optional)
 ```bash
-'php artisan db:seed '
+'php artisan db:seed' i.e UsersSeeder & BooksTableSeeder
 ```
 8:Run to start the development server
 ```bash
