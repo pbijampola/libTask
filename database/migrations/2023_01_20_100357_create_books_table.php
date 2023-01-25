@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tilte');
             $table->string('author');
             $table->longText('short_decs');
-            $table->longText('long_decs');
+            $table->longText('full_decs');
             $table->timestamps();
         });
     }
