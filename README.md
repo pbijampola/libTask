@@ -52,7 +52,7 @@ Instructions on How to Install it Locally
 
 Visit the link below to access the api of ellipsi library management system
 
-[Documentation](https://linktodocumentation)
+[Documentation](http://phplaravel-927072-3217574.cloudwaysapps.com/docs/)
 
 
 ## Authors
