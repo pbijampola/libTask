@@ -9,7 +9,7 @@ use App\Http\Controllers\user\CommentController;
 
 
 Route::get('/', function () {
-    return view('welcome2');
+    return view('welcome');
 });
 
 Auth::routes();
