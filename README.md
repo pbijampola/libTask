@@ -46,7 +46,10 @@ Instructions on How to Install it Locally
 9:Visit http://localhost:8000 in your browser to access the application
 
 Login details for sample uses 
+
 Admin : patrickbijampola@gmail.com
+password : 12345678
+
 User : Register any one of your preference
 
 
