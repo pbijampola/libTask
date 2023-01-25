@@ -13,7 +13,7 @@ Instructions on How to Install it Locally
 
 1:Clone the repository to your local machine using
 ```bash
-'git clone https://github.com/pbijampola/libtask.git'
+'git clone https://github.com/pbijampola/libTask.git'
 ```
 2:Change into the project directory using
 ```bash
