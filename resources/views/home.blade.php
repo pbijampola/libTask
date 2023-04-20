@@ -57,6 +57,9 @@
                                         <button type="submit" class="btn btn-danger"><i class="bi bi-heart"></i></button>
                                     </form>
                                 @endif
+                                <a href="{{ route('delivery.index') }}" class="btn btn-info">
+                                    <i class="bi bi-chat"></i> Delivery
+                                </a>
                             </div>
                         </div>
                     </div>

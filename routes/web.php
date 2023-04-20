@@ -31,11 +31,13 @@ Route::group(['prefix'=>'user','middleware'=>'auth'],function(){
     Route::post('books/{book}/like', [BookController::class,'like'])->name('books.like');
     Route::post('books/{book}/dislike', [BookController::class,'dislike'])->name('books.dislike');
 
-    // Route::post('users/{user}/books/{book}/markAsFavorite', 'BookController@markAsFavorite')->name('users.markAsFavorite');
-    // Route::post('users/{user}/books/{book}/unmarkAsFavorite', 'BookController@unmarkAsFavorite')->name('users.unmarkAsFavorite');
+
 
     Route::post('/books/{book}/markAsFavorite', [BookController::class,'markAsFavorite'])->name('books.markAsFavorite');
 Route::post('/books/{book}/unmarkAsFavorite', [BookController::class,'unmarkAsFavorite'])->name('books.unmarkAsFavorite');
+
+   //Delivery
+    Route::get('/delivery',[\App\Http\Controllers\DeliverController::class,'index'])->name('delivery.index');
 
 });
 
